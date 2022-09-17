@@ -1,10 +1,11 @@
 from django.template.defaulttags import url
-from django.urls import path
+from django.urls import path, include
 
 from task_manager import views
 
 urlpatterns = [
     path('', views.task_list, name='task_list'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('task/', views.task_detail, name='task_detail'),
     path('task_create/', views.task_create, name='task_detail'),
     path('task_update/', views.task_update, name='task_detail'),
