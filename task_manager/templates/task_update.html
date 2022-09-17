@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+Обновление задачи
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+
+<div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
+    <div class="row g-5">
+      <div class="col-md-8 col-lg-8">
+        <form class="needs-validation" novalidate="">
+          <div class="row g-3">
+            <div class="col-sm-12">
+              <label for="title" class="form-label">Заголовок</label>
+              <input type="text" class="form-control" id="title" placeholder="" value="" required="">
+
+            </div>
+            <div class="col-sm-12">
+              <label for="description" class="form-label">Описание задачи</label>
+              <textarea type="text" class="form-control" id="description" placeholder="" value="" required=""></textarea>
+            </div>
+            <div class="col-sm-4">
+              <label for="deadline" class="form-label">Срок исполнения</label>
+              <input type="datetime-local" class="form-control" id="deadline" placeholder="" value="" required="">
+
+            </div>
+            <div class="col-md-4">
+              <label for="priority" class="form-label">Приоритет</label>
+              <select class="form-select" id="priority" required="">
+                <option value="">...</option>
+                <option>Низкий</option>
+                <option>Нормальный</option>
+                <option>Высокий</option>
+                <option>Критичный</option>
+              </select>
+
+            </div>
+            <div class="col-md-4">
+              <label for="state" class="form-label">Статус</label>
+              <select class="form-select" id="state" required="">
+                <option value="">...</option>
+                <option>Создан</option>
+                <option>В работе</option>
+              </select>
+
+            </div>
+            <div class="col-md-4">
+              <label for="assigned-to" class="form-label">Назначен на</label>
+              <select class="form-select" id="assigned-to" required="">
+                <option value="">...</option>
+                <option>Фёдор</option>
+              </select>
+
+            </div>
+
+          </div>
+
+
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Обновить задачу</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
