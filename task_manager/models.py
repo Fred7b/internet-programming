@@ -10,7 +10,6 @@ from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
-# Fields used to create an index in the DB and sort the tasks in the Admin
 TASK_PRIORITY_FIELDS = ('state', '-priority', '-deadline')
 
 
@@ -38,10 +37,6 @@ class State(enum.Enum):
 
 
 class Priority(enum.Enum):
-    """
-    The priority of the task
-    (codes are prefixed with numbers to be easily sorted in the DB).
-    """
     LOW = '00-low'
     NORMAL = '10-normal'
     HIGH = '20-high'
