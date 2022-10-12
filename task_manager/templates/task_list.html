@@ -10,20 +10,30 @@
     <br>
 
 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
+        {% for task in tasks %}
         <div class="col">
           <div class="card shadow-sm">
+              <h1>{{ task.title }}</h1>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">{{ task.description }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <a class="button btn btn-sm btn-outline-secondary" href="{% url 'task_detail' pk=task.pk %}">Просмотр</a>
+{#                      <a class="button btn btn-sm btn-outline-secondary" href="{% url 'task_api_edit' pk=task.pk %}">Правка</a>#}
+{#                      <a class="button btn btn-sm btn-outline-secondary" href="#">Правка</a>#}
+
+                    <button type="button" class="btn btn-primary" onclick='open_edit_task_modal()'>
+                        Правка
+                    </button>
+
                 </div>
-                <small class="text-muted">9 mins</small>
               </div>
+              <small class="text">{{ task.get_state_display }}</small>
+              <small class="text">{{ task.get_priority_display }}</small>
             </div>
           </div>
         </div>
-</div>
 
+        {% endfor %}
+</div>
 {% endblock %}
